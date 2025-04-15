@@ -2,85 +2,89 @@ Ollama Benchmark Suite
 =======================
 
 A simple, cross-platform tool to benchmark Ollama model performance on Windows and Linux (Debian).
-Use custom prompts, time the responses, and export everything to a clean `.csv` file for easy comparison.
+Use custom prompts, time the responses, and export everything to a clean `.csv` file for easy comparison — then visualize your results!
 
 Features
 --------
 
 - ✅ Benchmark CPU or GPU inference speed
-- ✅ Works on Windows (PowerShell) and Linux/Debian (bash)
+- ✅ Works on Windows (PowerShell) and Linux (bash)
 - ✅ Supports multiple prompts
-- ✅ Generates structured `.csv` logs with:
-  - Hostname
-  - Model name
-  - Prompt
-  - Time taken
-  - Response
 - ✅ Automatically pulls models if missing
+- ✅ Exports .csv logs per machine
+- ✅ Compare results across machines
+- ✅ Plot graphs from results using Python
 
 Requirements
 ------------
 
 - Ollama installed: https://ollama.com
-- Internet connection (to pull models if needed)
-- PowerShell 5+ on Windows
-- Bash on Linux
+- Python 3
+- matplotlib (see requirements.txt)
+- Internet connection (for model download)
+
+To install Python requirements:
+
+    pip install -r requirements.txt
 
 Usage
 -----
 
-### On Windows
+▶ On Windows:
 
-1. Clone this repo:
-
-    git clone https://github.com/your-username/ollama-benchmark-suite.git
-    cd ollama-benchmark-suite
-
-2. Run the PowerShell benchmark:
-
+    git clone https://github.com/gamersalpha/ollama-benchmarking-scripts.git
+    cd ollama-benchmarking-scripts
     ./ollama-bench.ps1
 
-### On Debian/Linux
+🐧 On Linux / Debian:
 
-1. Clone this repo:
-
-    git clone https://github.com/your-username/ollama-benchmark-suite.git
-    cd ollama-benchmark-suite
-
-2. Make the script executable:
-
+    git clone https://github.com/gamersalpha/ollama-benchmarking-scripts.git
+    cd ollama-benchmarking-scripts
     chmod +x ollama-bench.sh
-
-3. Run the benchmark:
-
     ./ollama-bench.sh
 
-Output Example
---------------
+Visualisation
+-------------
 
-The result is a `.csv` file like:
+➤ Graphe simple (1 machine) :
 
-    Machine,Modèle,Prompt,Temps (s),Réponse
-    DESKTOP-01,mistral:7b-instruct,Quelle est la capitale de l'Australie ?,1.24,La capitale est Canberra.
-    DESKTOP-01,mistral:7b-instruct,Qui a écrit Les Misérables ?,1.75,Victor Hugo.
+    python graph.py
 
-Coming Soon
------------
+➤ Comparaison multi-machines :
 
-- Auto-graph generation from CSV (Python)
-- Model size vs speed chart
-- Hardware info summary
-- LLM quality scoring (BLEU, Rouge...)
+    python graph_all.py
+
+This compares all CSVs matching ollama_bench_*.csv in the directory and builds a multi-bar chart of response times per prompt.
+
+Project Structure
+-----------------
+
+    ollama-bench.ps1      → Benchmark script for Windows (PowerShell)
+    ollama-bench.sh       → Benchmark script for Debian/Linux
+    graph.py              → Plot benchmark results for one machine
+    graph_all.py          → Compare benchmark results across multiple machines
+    requirements.txt      → Python dependencies (only matplotlib)
+    README.md             → Project documentation
+
+Preview
+-------
+
+(Add screenshot of graph here once available)
+
+Example placeholder:
+
+    ![Benchmark graph preview](assets/preview.png)
 
 Contributing
 ------------
 
-Pull requests are welcome! Feel free to:
+Feel free to submit PRs to:
 - Add new features
-- Add support for other OS (macOS, Arch, etc.)
-- Improve formatting or output
+- Support more OS (macOS, Arch, etc.)
+- Improve the output formatting / charting
+- Add automatic hardware specs summary
 
 License
 -------
 
-MIT – use freely and improve it!
+MIT — use freely and make it better!
