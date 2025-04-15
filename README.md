@@ -1,3 +1,11 @@
+# 🧠 Ollama Benchmark Suite
+
+![Built with](https://img.shields.io/badge/Built%20with-Bash%20%7C%20PowerShell%20%7C%20Python-blue?style=flat-square&logo=gnu-bash&logoColor=white)
+![GitHub repo size](https://img.shields.io/github/repo-size/gamersalpha/ollama-benchmarking-scripts)
+![GitHub last commit](https://img.shields.io/github/last-commit/gamersalpha/ollama-benchmarking-scripts)
+![GitHub license](https://img.shields.io/github/license/gamersalpha/ollama-benchmarking-scripts)
+
+
 Ollama Benchmark Suite
 =======================
 
